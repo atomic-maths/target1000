@@ -33,7 +33,7 @@ class Grid:
         for row in self.grid:
             row_total = row[0] * 100 + row[1] * 10 + row[2]
             total += row_total
-        return total-1000
+        return abs(total-1000)
     
     def is_grid_empty(self):
         return self.number_filled_cells()==0
