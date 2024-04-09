@@ -20,6 +20,19 @@ class TestGrid(unittest.TestCase):
         self.verify_total([2,2,2,2,2,2,2,2,2], 334)
         self.verify_total([6,6,6,6,6,6,6,6,6], 998)
 
+    def test_total_is_correct_with_specific_values(self):
+        grid = Grid()
+        grid.set_value(0,0,1)
+        grid.set_value(1,0,2)
+        grid.set_value(2,0,3)
+        grid.set_value(0,1,1)
+        grid.set_value(1,1,2)
+        grid.set_value(2,1,3)
+        grid.set_value(0,2,1)
+        grid.set_value(1,2,2)
+        grid.set_value(2,2,3)
+        self.assertEqual(grid.score_complete_grid(), 631)
+
 # This allows the test to be run from the command line
 if __name__ == '__main__':
     unittest.main()
