@@ -1,77 +1,77 @@
 import random
 
 class Grid:
-    
-    def __init__(self):
-        self.grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+	
+	def __init__(self):
+		self.grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
-    def pretty_print(self):
-        h_line = '+---+---+---+'
-        for row in self.grid:
-            print(h_line)
-            print('|', end='')
-            for cell in row:
-                print(f' {cell} |', end='')
-            print()  # Newline at the end of the row
-        print(h_line)
-
-
-    def cartesian_to_array(self, x, y):
-        row = 2 - y
-        col = x
-        return row, col
+	def pretty_print(self):
+		h_line = '+---+---+---+'
+		for row in self.grid:
+			print(h_line)
+			print('|', end='')
+			for cell in row:
+				print(f' {cell} |', end='')
+			print()  # Newline at the end of the row
+		print(h_line)
 
 
-    def is_complete(self):
-        return self.number_filled_cells() == 9
-        
-
-    def score_complete_grid(self):
-        if not self.is_complete():
-            raise Exception("Grid is incomplete!")
-        total = 0
-        for row in self.grid:
-            row_total = row[0] * 100 + row[1] * 10 + row[2]
-            total += row_total
-        return abs(total-1000)
-    
-    def is_grid_empty(self):
-        return self.number_filled_cells()==0
+	def cartesian_to_array(self, x, y):
+		row = 2 - y
+		col = x
+		return row, col
 
 
-    def number_filled_cells(self):
-        filled = 0
-        for row in self.grid:
-            for cell in row:
-                if cell > 0:
-                    filled+=1
-        return filled
-    
-    def set_value(self, x, y, val):
-        if self.has_value_been_set(x,y):
-            raise Exception("Cannot overwrite value")
-        row, col = self.cartesian_to_array(x, y)
-        self.grid[row][col] = val
+	def is_complete(self):
+		return self.number_filled_cells() == 9
+		
 
-    def get_value(self, x, y):
-        row, col = self.cartesian_to_array(x, y)
-        return self.grid[row][col]
-    
-    def has_value_been_set(self, x, y):
-        row, col = self.cartesian_to_array(x, y)
-        return self.grid[row][col] != 0
-    
-    
-    def fill_next_empty_space(self, val):
-        col = 2
-        while col > -1:
-            row = 0
-            while row < 3:
-                if(self.grid[row][col] == 0):
-                    self.grid[row][col] = val
-                    return
-                row+=1
-            col-=1
+	def score_complete_grid(self):
+		if not self.is_complete():
+			raise Exception("Grid is incomplete!")
+		total = 0
+		for row in self.grid:
+			row_total = row[0] * 100 + row[1] * 10 + row[2]
+			total += row_total
+		return abs(total-1000)
+	
+	def is_grid_empty(self):
+		return self.number_filled_cells()==0
+
+
+	def number_filled_cells(self):
+		filled = 0
+		for row in self.grid:
+			for cell in row:
+				if cell > 0:
+					filled+=1
+		return filled
+	
+	def set_value(self, x, y, val):
+		if self.has_value_been_set(x,y):
+			raise Exception("Cannot overwrite value")
+		row, col = self.cartesian_to_array(x, y)
+		self.grid[row][col] = val
+
+	def get_value(self, x, y):
+		row, col = self.cartesian_to_array(x, y)
+		return self.grid[row][col]
+	
+	def has_value_been_set(self, x, y):
+		row, col = self.cartesian_to_array(x, y)
+		return self.grid[row][col] != 0
+	
+	
+	def fill_next_empty_space(self, val):
+		col = 2
+		while col > -1:
+			row = 0
+			while row < 3:
+				if(self.grid[row][col] == 0):
+					self.grid[row][col] = val
+					return
+				row+=1
+			col-=1
 
 
 def main():
@@ -81,5 +81,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+	main()
 
