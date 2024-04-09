@@ -53,6 +53,9 @@ class Grid:
         row, col = self.cartesian_to_array(x, y)
         self.grid[row][col] = val
 
+    def get_value(self, x, y):
+        row, col = self.cartesian_to_array(x, y)
+        return self.grid[row][col]
     
     def has_value_been_set(self, x, y):
         row, col = self.cartesian_to_array(x, y)

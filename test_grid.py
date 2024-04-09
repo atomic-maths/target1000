@@ -33,6 +33,13 @@ class TestGrid(unittest.TestCase):
         grid.set_value(2,2,3)
         self.assertEqual(grid.score_complete_grid(), 631)
 
+    def test_get_set_value(self):
+        test_value = 2
+        grid = Grid()
+        grid.set_value(0,0,test_value)
+        result = grid.get_value(0,0)
+        self.assertEqual(result, test_value)
+
 # This allows the test to be run from the command line
 if __name__ == '__main__':
     unittest.main()
