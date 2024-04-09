@@ -76,16 +76,8 @@ class Grid:
         return self.grid[row][col]
     
     
-    def eval_last_column(self):
-        return sum([val[2] for val in self.grid])
-    
-
-    def eval_mid_column(self):
-        return sum([val[1] for val in self.grid])
-    
-
-    def eval_first_column(self):
-        return sum([val[0] for val in self.grid])
+    def eval_column(self, x):
+        return sum([val[x] for val in self.grid])
 
 
 def main():
