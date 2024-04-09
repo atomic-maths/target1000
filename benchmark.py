@@ -29,13 +29,12 @@ def benchmark(runs):
 		score = run_game(False)
 		score_total+=score
 
-	print("\n") 
-	print(score_total)   
+	print("\n")  
 	print("benchmark = " + str(score_total/runs)) 
 
 def main():
 	benchmark_runs = 100000
-	option = int(input("Would you like to (1) show a debug or (2) run a benchmark?"))
+	option = int(input("Would you like to (1) show a debug or (2) run a benchmark? "))
 	if (option==2): return benchmark(benchmark_runs)
 	
 	print("Score was ", run_game(True))
