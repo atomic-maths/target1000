@@ -15,17 +15,14 @@ class Grid:
 			print()  # Newline at the end of the row
 		print(h_line)
 
-
 	def cartesian_to_array(self, x, y):
 		row = 2 - y
 		col = x
 		return row, col
 
-
 	def is_complete(self):
 		return self.number_filled_cells() == 9
 		
-
 	def score_complete_grid(self):
 		if not self.is_complete():
 			raise Exception("Grid is incomplete!")
@@ -61,7 +58,6 @@ class Grid:
 		row, col = self.cartesian_to_array(x, y)
 		return self.grid[row][col] != 0
 	
-	
 	def fill_next_empty_space(self, val):
 		col = 2
 		while col > -1:
@@ -72,15 +68,10 @@ class Grid:
 					return
 				row+=1
 			col-=1
-
     
-    def get_value(self, x, y):
-        row, col = self.cartesian_to_array(x, y)
-        return self.grid[row][col]
-    
-    
-    def eval_column(self, x):
-        return sum([val[x] for val in self.grid])
+	def eval_column(self, x):
+		return sum([val[x] for val in self.grid])
+	
 
 
 def main():
