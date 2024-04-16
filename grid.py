@@ -1,6 +1,3 @@
-import random
-
-
 class Grid:
 
 	def __init__(self):

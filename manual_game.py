@@ -1,11 +1,10 @@
-import random
-
 from dice import roll_dice
 from grid import Grid
 
+
 def game():
 	grid = Grid()
-	
+
 	while not grid.is_complete():
 		print("\nRolling the dice...")
 		roll = roll_dice()
@@ -18,21 +17,24 @@ def game():
 	score = grid.score_complete_grid()
 	print("You scored: " + str(score))
 
+
 def manually_pick_position(roll, grid):
 	def get_x_y():
 		x = int(input("Enter x value 0-2: "))
 		y = int(input("Enter y value 0-2: "))
-		return  x,y
+		return x, y
+
 	x, y = get_x_y()
-	while grid.has_value_been_set(x,y):
+	while grid.has_value_been_set(x, y):
 		print("You cannot place a number on a cell that already has a number")
 		print("You rolled a", roll)
 		x, y = get_x_y()
 	return x, y
 
+
 def main():
-   game()
+	game()
+
 
 if __name__ == "__main__":
 	main()
-
