@@ -73,6 +73,15 @@ class Grid:
 				row+=1
 			col-=1
 
+    
+    def get_value(self, x, y):
+        row, col = self.cartesian_to_array(x, y)
+        return self.grid[row][col]
+    
+    
+    def eval_column(self, x):
+        return sum([val[x] for val in self.grid])
+
 
 def main():
    grid = Grid()
